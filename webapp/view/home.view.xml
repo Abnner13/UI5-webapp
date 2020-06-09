@@ -1,0 +1,10 @@
+<mvc:View
+   controllerName="sap.f.sample.ShellBarWithSplitApp.controller.home"
+   xmlns="sap.m"
+   xmlns:mvc="sap.ui.core.mvc">
+   <Page title="Home" class="sapUiResponsiveContentPadding">
+      <content>
+         <Button text="Button" class="sapUiTinyMarginEnd"/>
+      </content>
+   </Page>
+</mvc:View>
