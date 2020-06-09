@@ -35,7 +35,7 @@
 			</tnt:SideNavigation>
 		</tnt:sideContent>
 		<tnt:mainContents>
-			<NavContainer id="pageContainer" initialPage="root1">
+			<NavContainer id="pageContainer" initialPage="page1">
 				<pages>
 					<ScrollContainer id="page1" horizontal="false" vertical="true" height="100%">
 						<App id="app"/>
