@@ -3,7 +3,7 @@ sap.ui.define([
  ], function (Controller) {
     "use strict";
  
-    return Controller.extend("sap.f.sample.ShellBarWithSplitApp.controller.home", {
+    return Controller.extend("sap.f.sample.ShellBarWithSplitApp.controller.Home", {
  
     });
  

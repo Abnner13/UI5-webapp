@@ -18,6 +18,52 @@
 				"sap.tnt": {}
 			}
 		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "sap.f.sample.ShellBarWithSplitApp.i18n.i18n",
+					"supportedLocales": [
+						""
+					],
+					"fallbackLocale": ""
+				}
+			},
+			"": {
+				"dataSource": "employeeRemote"
+			}
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "sap.f.sample.ShellBarWithSplitApp.view",
+				"controlId": "app",
+				"controlAggregation": "pages",
+				"transition": "slide",
+				"bypassed": {
+				   "target": "notFound"
+				},
+				"async": true
+			},
+			"routes": [{
+				"pattern": "",
+				"name": "appHome",
+				"target": "home"
+			}],
+			"targets": {
+				"home": {
+				   "viewId": "home",
+				   "viewName": "Home",
+				   "viewLevel" : 1
+				},
+				"notFound": {
+				   "viewId": "notFound",
+				   "viewName": "NotFound",
+				   "transition": "show"
+				}
+			}
+		},
 		"config": {
 			"sample": {
 				"stretch": true,

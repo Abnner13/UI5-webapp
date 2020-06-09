@@ -18,11 +18,10 @@ sap.ui.define([
 		
 		onMenuButtonPress : function() {
 			var toolPage = this.byId("toolPage");
-			
 			toolPage.setSideExpanded(!toolPage.getSideExpanded());
 		},
 
-		
+
 		onItemSelect : function(oEvent) {
 			var item = oEvent.getParameter('item');
 			this.byId("pageContainer").to(this.getView().createId(item.getKey()));

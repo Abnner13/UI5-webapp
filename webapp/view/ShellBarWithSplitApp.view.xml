@@ -35,19 +35,13 @@
 			</tnt:SideNavigation>
 		</tnt:sideContent>
 		<tnt:mainContents>
-			<NavContainer id="pageContainer" initialPage="page2">
+			<NavContainer id="pageContainer" initialPage="root1">
 				<pages>
-					<ScrollContainer id="root1" horizontal="false" vertical="true" height="100%">
-						<Text text="This is the root page"/>
-					</ScrollContainer>
 					<ScrollContainer id="page1" horizontal="false" vertical="true" height="100%">
-						<Text text="This is the first page"/>
-					</ScrollContainer>
-					<ScrollContainer id="page2" horizontal="false" vertical="true" height="100%">
 						<App id="app"/>
 					</ScrollContainer>
-					<ScrollContainer id="root2" horizontal="false" vertical="true" height="100%">
-						<Text text="This is the root page of the second element"/>
+					<ScrollContainer id="root1" horizontal="false" vertical="true" height="100%">
+						<Text text="This is the root page"/>
 					</ScrollContainer>
 				</pages>
 			</NavContainer>
