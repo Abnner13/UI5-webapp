@@ -28,9 +28,6 @@
 					],
 					"fallbackLocale": ""
 				}
-			},
-			"": {
-				"dataSource": "employeeRemote"
 			}
 		},
 		"routing": {
@@ -50,6 +47,10 @@
 				"pattern": "",
 				"name": "appHome",
 				"target": "home"
+			}, {
+				"pattern": "OtherPage",
+				"name": "OtherPage",
+				"target": "otherPage"
 			}],
 			"targets": {
 				"home": {
@@ -61,6 +62,11 @@
 				   "viewId": "notFound",
 				   "viewName": "NotFound",
 				   "transition": "show"
+				},
+				"otherPage": {
+					"viewId": "otherPage",
+					"viewName": "OtherPage",
+					"viewLevel" : 1
 				}
 			}
 		},
