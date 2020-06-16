@@ -44,7 +44,7 @@
 				"async": true
 			},
 			"routes": [{
-				"pattern": "Home",
+				"pattern": "",
 				"name": "appHome",
 				"target": "home"
 			}, {
