@@ -1,16 +1,16 @@
 
 {
-    "selectedKey": "appHome",
+    "selectedKey": "page1",
     "navigation": [
         {
             "title": "Overview",
             "icon": "sap-icon://world",
-            "key": "appHome"
-        },              
+            "key": "page1"
+        },
         {
             "title": "Services",
             "icon": "sap-icon://puzzle",
-            "key": "OtherPage"
+            "key": "root1"
         }
         
         

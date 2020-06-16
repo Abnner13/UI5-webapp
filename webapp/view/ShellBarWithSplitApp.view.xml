@@ -5,7 +5,7 @@
 	xmlns:tnt="sap.tnt" controllerName="sap.f.sample.ShellBarWithSplitApp.controller.ShellBarWithSplitApp">
 	<tnt:ToolPage id="toolPage">
 		<tnt:header>
-			<f:ShellBar title="{i18n>appTitle}"
+			<f:ShellBar title="Invent Files"
 				showMenuButton="true"
 				homeIcon="/images/sap_logo.svg"
 				menuButtonPressed="onMenuButtonPress"
@@ -26,6 +26,12 @@
 						</tnt:NavigationListItem>
 					</tnt:NavigationListItem>
 				</tnt:NavigationList>
+				<tnt:fixedItem>
+					<tnt:NavigationList items="{path: '/fixedNavigation'}">
+						<tnt:NavigationListItem text="{title}" icon="{icon}">
+						</tnt:NavigationListItem>
+					</tnt:NavigationList>
+				</tnt:fixedItem>
 			</tnt:SideNavigation>
 		</tnt:sideContent>
 		<tnt:mainContents>
