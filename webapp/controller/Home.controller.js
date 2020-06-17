@@ -6,7 +6,7 @@ sap.ui.define([
     return BaseController.extend("sap.f.sample.ShellBarWithSplitApp.controller.Home", {
          onDisplayNotFound : function () {
             //display the "notFound" target without changing the hash
-            this.getRouter().getTargets().display("notFound", {
+            this.getRouter().getTargets().display("home", {
                fromTarget : "home"
             });
          },

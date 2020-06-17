@@ -1,17 +1,41 @@
 <mvc:View
         controllerName="sap.f.sample.ShellBarWithSplitApp.controller.OtherPage"
+        xmlns:l="sap.ui.layout"
         xmlns="sap.m"
         xmlns:mvc="sap.ui.core.mvc">
         <Page
                 id="otherPage"
-                title="{i18n>otherPage}"
+                title="{i18n>ServicePage}"
                 class="sapUiResponsiveContentPadding">
             <content>
+                    <Toolbar>
+                        <Title text="Home - Services" TextAlign="Initial" level="Auto" titleStyle="H3"/>
+                        <ToolbarSpacer/>
+                     <l:VerticalLayout class="sapUiContentPadding">
+                        <MessageStrip
+                            text="Information with default icon."
+                            type="Information"
+                            showIcon="true"
+                            enableFormattedText="true"
+                            class="sapUiSmallMarginBottom">
+                        </MessageStrip>
+                </l:VerticalLayout>
+                    </Toolbar>
+                <l:VerticalLayout class="sapUiContentPadding">
+                    <Toolbar>
+                        <Label textAlign="begin"  text="i'm Text"/>
+			            <ToolbarSpacer/>
+                    </Toolbar>
+                </l:VerticalLayout>
+
             <VBox>
-				<Text text="Lorem ipsum dolor st amet, consetetur sadipscing elitr, 
-                    sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-                    sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. St
-                    et clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet." />
+				<Text text="O paradoxo de bootstrap, ou paradoxo ontológico, é um paradoxo
+                    da viagem no tempo em que as informações ou objetos podem existir sem terem
+                    sido criados. Após um objeto — ou informações — ser enviado de volta no 
+                    tempo, ele, recebido no presente, torna-se o próprio objeto ou informação que
+                    será inicialmente levado de volta no tempo. Inúmeras histórias de ficção 
+                    científica se baseiam nesse paradoxo, que também tem sido objeto de artigos
+                    científicos de física.[1] O paradoxo de bootstrap conecta de uma forma insana o passado e o futuro," />
 			</VBox>
             </content>
         </Page>

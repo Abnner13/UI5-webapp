@@ -39,12 +39,12 @@
 				"controlAggregation": "pages",
 				"transition": "slide",
 				"bypassed": {
-				   "target": "notFound"
+				   "target": "home"
 				},
 				"async": true
 			},
 			"routes": [{
-				"pattern": "",
+				"pattern": "Home",
 				"name": "appHome",
 				"target": "home"
 			}, {
