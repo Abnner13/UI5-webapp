@@ -1,26 +1,38 @@
-<mvc:View height="100%"
-	xmlns:mvc="sap.ui.core.mvc"
+<mvc:View 
+	height="100%"
 	xmlns="sap.m"
 	xmlns:f="sap.f"
-	xmlns:tnt="sap.tnt" controllerName="sap.f.sample.ShellBarWithSplitApp.controller.ShellBarWithSplitApp">
-	<tnt:ToolPage id="toolPage">
+	xmlns:tnt="sap.tnt" 
+	xmlns:mvc="sap.ui.core.mvc"
+	controllerName="sap.f.sample.ShellBarWithSplitApp.controller.ShellBarWithSplitApp">
+	<tnt:ToolPage id="toolPage" sideExpanded="false">
 		<tnt:header>
-			<f:ShellBar title="{i18n>appTitle}"
-				showMenuButton="true"
-				homeIcon="/images/sap_logo.svg"
-				menuButtonPressed="onMenuButtonPress"
-				showProductSwitcher="true"
-				productSwitcherPressed="loggedPopOver">
-				<f:profile>
-					<f:Avatar initials="A"/>
-				</f:profile>
-				<f:searchManager>
-					<f:SearchManager/>
-				</f:searchManager>
-			</f:ShellBar>
+			<tnt:ToolHeader>
+				<Button id="sideNavigationToggleButton" enabled="true"   icon="sap-icon://menu2" type="Transparent"  press="onMenuButtonPress" >
+					<layoutData>
+						<OverflowToolbarLayoutData priority="NeverOverflow" />
+					</layoutData>
+				</Button>
+				<Image
+					class="img-logo-topo"
+					src="/images/sap_logo.svg"
+					densityAware="false">
+				</Image>
+				<Text text="{i18n>appTitle}" wrapping="false">
+					<layoutData>
+						<OverflowToolbarLayoutData priority="Disappear" />
+					</layoutData>
+				</Text>
+				<ToolbarSpacer />
+				<Button id="userLoggedPopOver"    text="{currentUser>/UserName}" type="Transparent"  icon="sap-icon://person-placeholder"  press="onLoginPopOver">
+					<layoutData>
+						<OverflowToolbarLayoutData priority="NeverOverflow" />
+					</layoutData>
+				</Button>
+			</tnt:ToolHeader>
 		</tnt:header>
 		<tnt:sideContent>
-			<tnt:SideNavigation expanded="true" 
+			<tnt:SideNavigation expanded="false" 
 						selectedKey="{/selectedKey}" 
 						itemSelect="onItemSelect">
 				<tnt:NavigationList items="{path: '/navigation'}">

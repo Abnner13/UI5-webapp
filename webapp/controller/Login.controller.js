@@ -28,7 +28,7 @@ sap.ui.define([
 				return;
 			}else{
 				this.setUserSession(this.UserCredentials)
-				this.getRouter().navTo("home")
+				this.getRouter().navTo("OtherPage")
 	
 			}
 

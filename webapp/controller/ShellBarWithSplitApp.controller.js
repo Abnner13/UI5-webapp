@@ -9,7 +9,13 @@ sap.ui.define([
 	"use strict";
 
 	var shellBarController = BaseController.extend("sap.f.sample.ShellBarWithSplitApp.controller.ShellBarWithSplitApp", {
+		_toolPage: {},
 		onInit : function() {
+			this._toolPage = this.byId("toolPage");
+			this.getRouter().attachRouteMatched(this.onAfterLoginMatch, this);
+        	this.getRouter()
+          		.getRoute("login")
+          		.attachPatternMatched(this.beforeLogin, this);
 			this.oModel = new JSONModel();
 			this.oModel.loadData(sap.ui.require.toUrl("sap/f/sample/ShellBarWithSplitApp/model") + "/model.json", null, false);
 			this.getView().setModel(this.oModel);
@@ -17,8 +23,8 @@ sap.ui.define([
 		
 		beforeLogin(oEvent) {
 			this.destroyNavigation();
-		  },
-		
+		},
+
 		onAfterLoginMatch(oEvent) {
 			let route = oEvent.getParameter("name");
 			if (route != "login") this.createNavigation();
@@ -45,23 +51,42 @@ sap.ui.define([
 			  	);
 			  this.getView().addDependent(this._oPopoverLogged);
 			}
+			let model = new JSONModel();
+			model.setData(this.getUserSession());
+			this._oPopoverLogged.setModel(model);
 			var oButton = oEvent.getSource();
 			jQuery.sap.delayedCall(0, this, function() {
-			this._oPopoverLogged.openBy(oButton);
+				this._oPopoverLogged.openBy(oButton);
 			});
+		},
+
+		createNavigation() {
+			let toogleButton = this.byId("sideNavigationToggleButton");
+        
+			if (toogleButton.getEnabled()) 
+			  return;
+			
+			var model = new JSONModel();
+			model
+				.get(this.getServerUrl("model.json"))
+				.then(toogleButton.setEnabled(true))
+				.catch( e => {
+					this.showExeption(e);
+				});
+			
+			this._toolPage.setModel(model);
+		},
+		
+		destroyNavigation() {
+			this.byId("sideNavigationToggleButton").setEnabled(false);
+			this._toolPage.setModel(new JSONModel());
 		},
 
 		onMenuButtonPress : function() {
 			var toolPage = this.byId("toolPage");
 			toolPage.setSideExpanded(!toolPage.getSideExpanded());
 		},
-
-		destroyNavigation() {
-			this.byId("toolPage").setEnabled(false);
-			this._toolPage.setModel(new JSONModel());
-		},
-
-
+		
 		onItemSelect : function(oEvent) {
 			var item = oEvent.getParameter('item');
 			this.byId("pageContainer").to(this.getView().createId(item.getKey()));
@@ -73,3 +98,4 @@ sap.ui.define([
 	return shellBarController;
 
 });
+	

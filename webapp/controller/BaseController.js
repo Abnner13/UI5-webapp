@@ -11,6 +11,27 @@ sap.ui.define([
 		getRouter : function () {
 			return UIComponent.getRouterFor(this);
 		},
+		
+		getServerUrl() {
+			let base = [];
+			let serve = this.getOwnerComponent().getMetadata().getConfig().serviceUrl;
+			base.push(serve);
+
+			for (let index = 0; index < arguments.length; index++) {
+				const element = arguments[index];
+				base.push(element);
+			}
+
+			return base.join('/');
+		},
+
+		getModel: function (sName) {
+			return this.getView().getModel(sName);
+		},
+
+		setModel: function (oModel, sName) {
+			return this.getView().setModel(oModel, sName);
+		},
 
 		onNavBack: function () {
 			var oHistory, sPreviousHash;

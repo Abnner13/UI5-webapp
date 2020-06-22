@@ -1,0 +1,22 @@
+.loginBG:before {
+	content: "";
+	position: inherit;
+	z-index: -1;
+	display: block;
+	width: 100%;
+	height: inherit;
+	overflow: hidden;
+	-webkit-filter: blur(2px);
+	-moz-filter: blur(2px);
+	-o-filter: blur(2px);
+	-ms-filter: blur(2px);
+	filter: blur(2px);
+}
+
+.img-logo-topo{
+	max-height: 1.5em;
+}
+
+.bordered {
+	border: solid 1px  #5899DA !important;	
+}

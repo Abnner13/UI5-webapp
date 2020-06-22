@@ -39,13 +39,13 @@
 				"controlAggregation": "pages",
 				"transition": "slide",
 				"bypassed": {
-					"target": "home"
+					"target": "notFound"
 				},
 				"async": true
 			},
 			"routes": [
 				{
-					"pattern": "Login",
+					"pattern": "",
 					"name": "login",
 					"target": "login"
 				},
@@ -70,11 +70,6 @@
 					"viewId": "home",
 					"viewName": "Home",
 					"viewLevel": 2
-				},
-				"notFound": {
-					"viewId": "notFound",
-					"viewName": "NotFound",
-					"transition": "show"
 				},
 				"otherPage": {
 					"viewId": "otherPage",
