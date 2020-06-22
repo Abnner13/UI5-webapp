@@ -14,11 +14,51 @@ sap.ui.define([
 			this.oModel.loadData(sap.ui.require.toUrl("sap/f/sample/ShellBarWithSplitApp/model") + "/model.json", null, false);
 			this.getView().setModel(this.oModel);
 		},
-
 		
+		beforeLogin(oEvent) {
+			this.destroyNavigation();
+		  },
+		
+		onAfterLoginMatch(oEvent) {
+			let route = oEvent.getParameter("name");
+			if (route != "login") this.createNavigation();
+		},
+
+		onLoginPopOver: function(oEvent) {
+			if (!this.getUserSession()) {
+			  MessageToast.show("NoLoggedUser");
+			  this.getRouter().navTo("login");
+			} else this.loggedPopOver(oEvent);
+		},  
+		
+		onLogOut: function() {
+			this.destroyUserSession();
+			this.getRouter().navTo("login");
+			location.reload();
+		  },
+
+		loggedPopOver: function(oEvent) {
+			if (!this._oPopoverLogged) {
+				this._oPopoverLogged = sap.ui.xmlfragment(
+					"sap.f.sample.ShellBarWithSplitApp.view.Logged",
+					this
+			  	);
+			  this.getView().addDependent(this._oPopoverLogged);
+			}
+			var oButton = oEvent.getSource();
+			jQuery.sap.delayedCall(0, this, function() {
+			this._oPopoverLogged.openBy(oButton);
+			});
+		},
+
 		onMenuButtonPress : function() {
 			var toolPage = this.byId("toolPage");
 			toolPage.setSideExpanded(!toolPage.getSideExpanded());
+		},
+
+		destroyNavigation() {
+			this.byId("toolPage").setEnabled(false);
+			this._toolPage.setModel(new JSONModel());
 		},
 
 

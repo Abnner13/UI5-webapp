@@ -39,34 +39,47 @@
 				"controlAggregation": "pages",
 				"transition": "slide",
 				"bypassed": {
-				   "target": "home"
+					"target": "home"
 				},
 				"async": true
 			},
-			"routes": [{
-				"pattern": "Home",
-				"name": "appHome",
-				"target": "home"
-			}, {
-				"pattern": "OtherPage",
-				"name": "OtherPage",
-				"target": "otherPage"
-			}],
+			"routes": [
+				{
+					"pattern": "Login",
+					"name": "login",
+					"target": "login"
+				},
+				{
+					"pattern": "Home",
+					"name": "appHome",
+					"target": "home"
+				},
+				{
+					"pattern": "OtherPage",
+					"name": "OtherPage",
+					"target": "otherPage"
+				}
+			],
 			"targets": {
+				"login": {
+					"viewId": "login",
+					"viewName": "Login",
+					"viewLevel": 1
+				},
 				"home": {
-				   "viewId": "home",
-				   "viewName": "Home",
-				   "viewLevel" : 1
+					"viewId": "home",
+					"viewName": "Home",
+					"viewLevel": 2
 				},
 				"notFound": {
-				   "viewId": "notFound",
-				   "viewName": "NotFound",
-				   "transition": "show"
+					"viewId": "notFound",
+					"viewName": "NotFound",
+					"transition": "show"
 				},
 				"otherPage": {
 					"viewId": "otherPage",
 					"viewName": "OtherPage",
-					"viewLevel" : 1
+					"viewLevel": 2
 				}
 			}
 		},

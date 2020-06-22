@@ -1,42 +1,74 @@
 <mvc:View
         controllerName="sap.f.sample.ShellBarWithSplitApp.controller.OtherPage"
-        xmlns:l="sap.ui.layout"
         xmlns="sap.m"
+        xmlns:f="sap.f"
+        xmlns:l="sap.ui.layout"
+        xmlns:core="sap.ui.core"
         xmlns:mvc="sap.ui.core.mvc">
         <Page
-                id="otherPage"
-                title="{i18n>ServicePage}"
-                class="sapUiResponsiveContentPadding">
+            id="otherPage"
+            title="{i18n>ServicePage}"
+            class="sapUiResponsiveContentPadding">
             <content>
                     <Toolbar>
-                        <Title text="Home - Services" TextAlign="Initial" level="Auto" titleStyle="H3"/>
-                        <ToolbarSpacer/>
-                     <l:VerticalLayout class="sapUiContentPadding">
+                        <Title text="Home - Services" level="Auto" titleStyle="H3"/>
+                    </Toolbar>
+                     <l:VerticalLayout width="100%">
+
                         <MessageStrip
-                            text="Information with default icon."
+                            text="This is the full list of services on the platform. To use a service, navigate to the subaccount in which you want to use it."
                             type="Information"
-                            showIcon="true"
                             enableFormattedText="true"
-                            class="sapUiSmallMarginBottom">
+                            class="sapUiSmalMarginBottom">
                         </MessageStrip>
-                </l:VerticalLayout>
-                    </Toolbar>
-                <l:VerticalLayout class="sapUiContentPadding">
-                    <Toolbar>
-                        <Label textAlign="begin"  text="i'm Text"/>
-			            <ToolbarSpacer/>
-                    </Toolbar>
+
+                        <Toolbar>
+                            <Label text="All: 116" design="Standard"/>
+                        </Toolbar>
+
+
+                        <OverflowToolbar>
+                            <ToolbarSpacer />
+                            <Label width="auto" maxwidth="300px" labelFor="labeledSelectGroup1">
+                                <layoutData>
+                                    <OverflowToolbarLayoutData group="1" />
+                                </layoutData>
+                            </Label>
+
+                            <Select width="20%" id="labeledSelectGroup1">
+                                <items>
+                                    <core:Item key="1" text="All Categories"/>
+                                    <core:Item key="2" text="Option 2"/>
+                                    <core:Item key="3" text="Option 3"/>
+                                    <core:Item key="4" text="Option 4"/>
+                                    <core:Item key="5" text="Option 5"/>
+                                </items>
+                                <layoutData>
+                                    <OverflowToolbarLayoutData group="1" shrinkable="true" minWidth="150px"/>
+                                </layoutData>
+                            </Select>
+
+                        <SearchField width="15rem" placeholder="Search">
+                            <layoutData>
+                                <OverflowToolbarLayoutData
+                                    shrinkable="true"
+                                    minWidth = "100px"/>
+                            </layoutData>
+                        </SearchField>
+                        </OverflowToolbar>
                 </l:VerticalLayout>
 
-            <VBox>
+               
+    
+            <!-- <VBox>
 				<Text text="O paradoxo de bootstrap, ou paradoxo ontológico, é um paradoxo
                     da viagem no tempo em que as informações ou objetos podem existir sem terem
                     sido criados. Após um objeto — ou informações — ser enviado de volta no 
                     tempo, ele, recebido no presente, torna-se o próprio objeto ou informação que
                     será inicialmente levado de volta no tempo. Inúmeras histórias de ficção 
                     científica se baseiam nesse paradoxo, que também tem sido objeto de artigos
-                    científicos de física.[1] O paradoxo de bootstrap conecta de uma forma insana o passado e o futuro," />
-			</VBox>
+                    científicos de física. O paradoxo de bootstrap conecta de uma forma insana o passado e o futuro," />
+			</VBox> -->
             </content>
         </Page>
 </mvc:View>
