@@ -4,7 +4,7 @@
 	xmlns:f="sap.f"
 	xmlns:tnt="sap.tnt" 
 	xmlns:mvc="sap.ui.core.mvc"
-	controllerName="sap.f.sample.ShellBarWithSplitApp.controller.ShellBarWithSplitApp">
+	controllerName="sap.f.sample.ShellBarWithSplitApp.controller.App">
 	<tnt:ToolPage id="toolPage" sideExpanded="false">
 		<tnt:header>
 			<tnt:ToolHeader>
@@ -15,7 +15,7 @@
 				</Button>
 				<Image
 					class="img-logo-topo"
-					src="/images/sap_logo.svg"
+					src="/images/logoInvent.png"
 					densityAware="false">
 				</Image>
 				<Text text="{i18n>appTitle}" wrapping="false">

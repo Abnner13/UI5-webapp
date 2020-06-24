@@ -7,7 +7,7 @@
 	},
 	"sap.ui5": {
 		"rootView": {
-			"viewName": "sap.f.sample.ShellBarWithSplitApp.view.ShellBarWithSplitApp",
+			"viewName": "sap.f.sample.ShellBarWithSplitApp.view.App",
 			"type": "XML",
 			"async": true
 		},
@@ -55,9 +55,9 @@
 					"target": "home"
 				},
 				{
-					"pattern": "OtherPage",
-					"name": "OtherPage",
-					"target": "otherPage"
+					"pattern": "Services",
+					"name": "services",
+					"target": "services"
 				}
 			],
 			"targets": {
@@ -71,9 +71,9 @@
 					"viewName": "Home",
 					"viewLevel": 2
 				},
-				"otherPage": {
-					"viewId": "otherPage",
-					"viewName": "OtherPage",
+				"services": {
+					"viewId": "services",
+					"viewName": "Services",
 					"viewLevel": 2
 				}
 			}

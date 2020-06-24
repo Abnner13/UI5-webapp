@@ -14,6 +14,8 @@
 }
 
 .img-logo-topo{
+	filter: invert(75%);
+	filter: brightness(1.4);
 	max-height: 1.5em;
 }
 

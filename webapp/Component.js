@@ -7,7 +7,7 @@ function (UIComponent) {
 			manifest: "json"
         },
 
-		init: function(){
+		init(){
 			UIComponent.prototype.init.apply(this, arguments);
 			this.getRouter().initialize();
 		}

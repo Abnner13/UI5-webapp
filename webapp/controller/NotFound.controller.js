@@ -3,7 +3,7 @@ sap.ui.define([
 ], function (BaseController) {
     "use strict";
     return BaseController.extend("sap.f.sample.ShellBarWithSplitApp.controller.NotFound", {
-        onInit: function () {
+        onInit() {
             var oRouter, oTarget;
 
             oRouter = this.getRouter();
@@ -12,7 +12,7 @@ sap.ui.define([
                 this._oData = oEvent.getParameter("data");	// store the data
             }, this);
         },
-        onNavBack : function() {
+        onNavBack() {
             if (this._oData && this._oData.fromTarget) {
                 this.getRouter().getTargets().display(this._oData.fromTarget);
                 delete this._oData.fromTarget;

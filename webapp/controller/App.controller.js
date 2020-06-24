@@ -1,16 +1,14 @@
 sap.ui.define([
-	'sap/ui/Device',
 	'sap/ui/model/json/JSONModel',
-	'sap/m/Popover',
-	'sap/m/Button',
-	'sap/m/library',
-	"sap/f/sample/ShellBarWithSplitApp/controller/BaseController",
-], function ( Device, JSONModel, Popover, Button, mobileLibrary, BaseController) {
+	'sap/m/MessageToast',
+	'sap/f/sample/ShellBarWithSplitApp/controller/BaseController',
+], function ( JSONModel, MessageToast,  BaseController) {
 	"use strict";
 
-	var shellBarController = BaseController.extend("sap.f.sample.ShellBarWithSplitApp.controller.ShellBarWithSplitApp", {
+	var shellBarController = BaseController.extend("sap.f.sample.ShellBarWithSplitApp.controller.App", {
 		_toolPage: {},
-		onInit : function() {
+		onInit() {
+			debugger
 			this._toolPage = this.byId("toolPage");
 			this.getRouter().attachRouteMatched(this.onAfterLoginMatch, this);
         	this.getRouter()
@@ -20,30 +18,33 @@ sap.ui.define([
 			this.oModel.loadData(sap.ui.require.toUrl("sap/f/sample/ShellBarWithSplitApp/model") + "/model.json", null, false);
 			this.getView().setModel(this.oModel);
 		},
-		
+
 		beforeLogin(oEvent) {
 			this.destroyNavigation();
 		},
 
 		onAfterLoginMatch(oEvent) {
+			debugger
 			let route = oEvent.getParameter("name");
-			if (route != "login") this.createNavigation();
+			
+			if (route != "login") 
+				this.createNavigation();
 		},
 
-		onLoginPopOver: function(oEvent) {
+		onLoginPopOver(oEvent) {
 			if (!this.getUserSession()) {
-			  MessageToast.show("NoLoggedUser");
+			  MessageToast.show("Faça o login para utilizar o sistema");
 			  this.getRouter().navTo("login");
 			} else this.loggedPopOver(oEvent);
 		},  
 		
-		onLogOut: function() {
+		onLogOut() {
 			this.destroyUserSession();
 			this.getRouter().navTo("login");
 			location.reload();
-		  },
+		},
 
-		loggedPopOver: function(oEvent) {
+		loggedPopOver(oEvent) {
 			if (!this._oPopoverLogged) {
 				this._oPopoverLogged = sap.ui.xmlfragment(
 					"sap.f.sample.ShellBarWithSplitApp.view.Logged",
@@ -61,20 +62,16 @@ sap.ui.define([
 		},
 
 		createNavigation() {
+			debugger
 			let toogleButton = this.byId("sideNavigationToggleButton");
         
 			if (toogleButton.getEnabled()) 
-			  return;
-			
-			var model = new JSONModel();
-			model
-				.get(this.getServerUrl("model.json"))
-				.then(toogleButton.setEnabled(true))
-				.catch( e => {
-					this.showExeption(e);
-				});
-			
-			this._toolPage.setModel(model);
+			return;
+
+			toogleButton.setEnabled(true)
+			this.oModel = new JSONModel();
+			this.oModel.loadData(sap.ui.require.toUrl("sap/f/sample/ShellBarWithSplitApp/model") + "/model.json", null, false);
+			this._toolPage.setModel(this.oModel);
 		},
 		
 		destroyNavigation() {
@@ -82,12 +79,12 @@ sap.ui.define([
 			this._toolPage.setModel(new JSONModel());
 		},
 
-		onMenuButtonPress : function() {
+		onMenuButtonPress() {
 			var toolPage = this.byId("toolPage");
 			toolPage.setSideExpanded(!toolPage.getSideExpanded());
 		},
 		
-		onItemSelect : function(oEvent) {
+		onItemSelect(oEvent) {
 			var item = oEvent.getParameter('item');
 			this.byId("pageContainer").to(this.getView().createId(item.getKey()));
 			this.getRouter().navTo(item.getKey());

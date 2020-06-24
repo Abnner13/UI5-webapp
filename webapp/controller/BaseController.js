@@ -8,7 +8,7 @@ sap.ui.define([
 	return Controller.extend("sap.f.sample.ShellBarWithSplitApp.controller.BaseController", {
 		USER_SESSION_PATH: "currentUser",
 
-		getRouter : function () {
+		getRouter() {
 			return UIComponent.getRouterFor(this);
 		},
 		
@@ -25,15 +25,15 @@ sap.ui.define([
 			return base.join('/');
 		},
 
-		getModel: function (sName) {
+		getModel(sName) {
 			return this.getView().getModel(sName);
 		},
 
-		setModel: function (oModel, sName) {
+		setModel(oModel, sName) {
 			return this.getView().setModel(oModel, sName);
 		},
 
-		onNavBack: function () {
+		onNavBack() {
 			var oHistory, sPreviousHash;
 
 			oHistory = History.getInstance();
@@ -46,16 +46,16 @@ sap.ui.define([
 			}
 		},
 
-		getUserSession: function () {
+		getUserSession() {
 			return this.getItem(this.USER_SESSION_PATH);
 		},
 
-		setUserSession: function (userData) {
+		setUserSession(userData) {
 			delete userData.Password;
 			this.setItem(this.USER_SESSION_PATH, userData)
 		},
 
-		destroyUserSession: function () {
+		destroyUserSession() {
 			this.removeItem(this.USER_SESSION_PATH);
 		},
 		

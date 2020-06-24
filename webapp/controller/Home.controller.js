@@ -5,15 +5,15 @@ sap.ui.define([
 
     return BaseController.extend("sap.f.sample.ShellBarWithSplitApp.controller.Home", {
 
-         onDisplayNotFound : function () {
+         onDisplayNotFound() {
             //display the "notFound" target without changing the hash
             this.getRouter().getTargets().display("home", {
                fromTarget : "home"
             });
          },
          
-         onNavToOtherPage : function () { 
-            this.getRouter().navTo("OtherPage");
+         onNavToServices() { 
+            this.getRouter().navTo("services");
          }
     });
  

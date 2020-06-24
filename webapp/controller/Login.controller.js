@@ -3,8 +3,9 @@ sap.ui.define([
 	"sap/m/MessageToast",
 ], function (BaseController, MessageToast) {
 	"use strict";
+	
 	return BaseController.extend("sap.f.sample.ShellBarWithSplitApp.controller.Login", {
-		onInit : function () {
+		onInit() {
 			var that = this;
 			this.byId("InventFilesLoginPage").attachBrowserEvent("keypress", oEvent => {
 				if(oEvent.keyCode != jQuery.sap.KeyCodes.ENTER) return;
@@ -19,7 +20,7 @@ sap.ui.define([
 			};
 		},
 
-		onLogin : function (oEvent) {
+		onLogin(oEvent) {
 			this.UserCredentials.UserName = this.byId("userName").getValue()
 			this.UserCredentials.Password = this.byId("userPass").getValue()
 
@@ -28,7 +29,7 @@ sap.ui.define([
 				return;
 			}else{
 				this.setUserSession(this.UserCredentials)
-				this.getRouter().navTo("OtherPage")
+				this.getRouter().navTo("services")
 	
 			}
 

@@ -1,12 +1,12 @@
 <mvc:View
-        controllerName="sap.f.sample.ShellBarWithSplitApp.controller.OtherPage"
+        controllerName="sap.f.sample.ShellBarWithSplitApp.controller.Services"
         xmlns="sap.m"
         xmlns:f="sap.f"
         xmlns:l="sap.ui.layout"
         xmlns:core="sap.ui.core"
         xmlns:mvc="sap.ui.core.mvc">
         <Page
-            id="otherPage"
+            id="services"
             title="{i18n>ServicePage}"
             class="sapUiResponsiveContentPadding">
             <content>
@@ -58,6 +58,33 @@
                         </OverflowToolbar>
                 </l:VerticalLayout>
 
+                	<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Sales Fulfillment Application Title"
+		                subheader="Subtitle" press="press">
+                        <TileContent unit="EUR" footer="Current Quarter">
+                            <ImageContent src="sap-icon://home-share" />
+                        </TileContent>
+	                </GenericTile>
+
+                    <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Manage Activity Master Data Type"
+                        subheader="Subtitle" press="press">
+                        <TileContent footer="Your Analytics">
+                            <ImageContent src="sap-icon://filter-analytics" />
+                        </TileContent>
+                    </GenericTile>
+                    
+                    <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Fabio nascimento"
+		                subheader="software development" press="press">
+                        <TileContent footer="Senior Developer">
+                            <ImageContent src="sap-icon://customer" />
+                        </TileContent>
+	                </GenericTile>
+
+                    <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Oficial Invent Site"
+                        subheader="Link tile" press="press" url="{i18n>App.Link}">
+                        <TileContent footer="Best Oppotunitty">
+                            <ImageContent src="sap-icon://opportunity" />
+                        </TileContent>
+                    </GenericTile>
                
     
             <!-- <VBox>
